@@ -64,7 +64,6 @@ impl std::fmt::Display for C2SMsg {
                     content.clone()
                 };
 
-                // Write the formatted string with padding
                 write!(
                     f,
                     "    |----{}: {:>width$}---▶|",
@@ -74,7 +73,6 @@ impl std::fmt::Display for C2SMsg {
                 )
             }
             C2SMsg::Reply(val) => {
-                // Format for Reply variant
                 write!(
                     f,
                     "    |----{}: {:>width$}!---▶|",
@@ -91,7 +89,6 @@ impl std::fmt::Display for S2CMsg {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             S2CMsg::Response(val) => {
-                // Write the formatted string with padding
                 write!(
                     f,
                     "    |◀---{}: {:>width$}----|",
@@ -101,7 +98,6 @@ impl std::fmt::Display for S2CMsg {
                 )
             }
             S2CMsg::Query(val) => {
-                // Format for Reply variant
                 write!(
                     f,
                     "    |◀---{}: {:>width$}?----|",
@@ -119,7 +115,6 @@ impl std::fmt::Display for S2CMsg {
                 )
             }
             S2CMsg::BadSeq => {
-                // Format for Reply variant
                 write!(
                     f,
                     "    ◀---BadSeq: {:>width$}!----",
